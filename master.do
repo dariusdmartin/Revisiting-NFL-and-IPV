@@ -75,10 +75,10 @@ if _rc {
 
 * Run programs:
 if $download_public {
-	do "$code\0_download public data"
+	do "$code\0_download_public_data"
 }
 
-do "$code\1_county and stadium geog"
+do "$code\1_county_and_stadium_geog"
 
 if $build_drivedistance {
 	do "$code\2_calculate driving distances" 
@@ -97,20 +97,20 @@ if $build_weather {
 * Inclusion criteria and dependent variables:
 if $build_nibrs {
 	do "$code\8_inclusion criteria"
-	do "$code\9_extract victim files"
+	do "$code\9_extract_victim_files"
 } 
 
-do "$code\10_create sample - CD"
-do "$code\11_create sample - windows"
-do "$code\12_summary stats"
+do "$code\10_create_sample-CD"
+do "$code\11_create_sample-windows"
+do "$code\12_summary_stats"
 do "$code\13_regressions"
-do "$code\14_regional heterogeneity"
+do "$code\14_regional_heterogeneity"
 
 * Hometeam maps: 
 if $build_maps {
 	capture mkdir "$maps"
     capture which spmap
     if _rc ssc install spmap, replace
-    do "$code\15_draw hometeam maps"
+    do "$code\15_draw_hometeam_maps"
 }
 log close

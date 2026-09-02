@@ -47,7 +47,7 @@ capture mkdir "$results"
 * Check that data archive has been unpacked:
 capture confirm file "$prov\driving distances.dta"
 if _rc {
-    di as err "Data archive not found. Download ipv_nfl_replication.zip and unzip at $homed (see README)"
+    di as err "Data archive not found. Download Revisiting-NFL-and-IPV-data.zip and unzip at $homed (see README)"
     exit 601
 }
 * Copy provided datasets for any stage not being rebuilt:

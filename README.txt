@@ -3,8 +3,11 @@ Instructions:
 
 To reproduce all tables and figures in the paper:
 
-1) Download and unzip Revisiting-NFL-and-IPV-data.zip from google drive here:
-2) Update line 7 of "master.do" to give the full path to the home directory for the replication.  
+1) Download and unzip Revisiting-NFL-and-IPV-data.zip from google drive here: 
+https://drive.google.com/file/d/1IvgkZ6FyIrIMiwMUhebIj_GyjmoRzME0/view
+
+2) Update line 7 of "master.do" to give the full path to the home directory for the replication. 
+ 
 3) Run "master.do" (with default settings).
 
 The home directory contains these sub-directories: raw_data, code, proc, results, provided_data, and maps. Sub-directories are created by master.do if they are not already present. 
@@ -77,10 +80,21 @@ Description: FIPS codes for agencies with missing county codes in the raw NIBRS 
 Needed by: scripts 8 and 9
 Description: Has the numeric codes for each year's NIBRS extracts from ICPSR.
 
+"$rawdata\NFL Data sportsoddhist.xlsx"
+Needed by: script 4
+Description: Predicted and actual results for all NFL games in the 1995-2024 seasons. Compiled by hand from numerous websites at sportsoddshistory.
+
+"$rawdata\nfldates.csv"
+Needed by: script 4
+Description: This sheet lists the dates of all NFL gamedays in the 1995-2024 season, along with the season and week of season.
+
 "$rawdata\Stadiums.xlsx"
+Needed by: script 1
+Description: This dataset contains the geographic coordinates of all NFL teams at the team by season level, for each season between 1995 and 2024. Compiled by hand, with coordinates obtained from google maps.
 
 "$rawdata\team color scheme.txt"
 Needed by: script 15.
+Description: Contains the colors for each team used in the maps in Figures 1 and 2. 
 
 Sources of all tables and figures in the paper:
 Table 1 -> "12_summary stats.do"

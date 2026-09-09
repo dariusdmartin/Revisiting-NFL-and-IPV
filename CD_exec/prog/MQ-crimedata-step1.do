@@ -12,7 +12,7 @@ forvalues i = 1995(1)2006 {
   capture mkdir "$data\nibrs\out\year`i'"
 
   *** Get the NIBRS Data:
-  import excel using "$datanibrs\ICPSR NIBRS Codes.xlsx", clear firstrow
+  import excel using "$data\misc\ICPSR NIBRS Codes.xlsx", clear firstrow
   keep if year == `i'
   loc q1 = NIBRS[1]
   

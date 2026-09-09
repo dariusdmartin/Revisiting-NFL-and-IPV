@@ -17,7 +17,7 @@ clear
 foreach f in "CT county correspondence.xlsx" "missing counties fips.xlsx" "ICPSR NIBRS Codes.xlsx" {
 	capture confirm file "$rawdata/`f'"
     if _rc {
-        di as err "Missing $rawdata/`f' — set build_nibrs to 0 or get replication_data.zip (see README)."
+        di as err "Missing $rawdata/`f' — set build_nibrs to 0 and download Revisiting-NFL-and-IPV.zip (see README)."
         exit 601
     }
 }

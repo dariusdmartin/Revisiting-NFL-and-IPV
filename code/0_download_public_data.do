@@ -29,7 +29,7 @@ cd "$root"
 * Needed in script 7
 copy "https://www.ncei.noaa.gov/pub/data/noaa/isd-history.csv" "$rawdata\isdhistory.csv", replace
 
-/* NFL Data and dates: (from sports odd hist), get the internet location here:
+/* NFL Data and dates:
 capture confirm file "$rawdata\NFL Data sportsoddhist.csv"
 capture confirm file "$rawdata\nfldates.csv"
 */

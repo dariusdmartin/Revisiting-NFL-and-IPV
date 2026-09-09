@@ -5,15 +5,14 @@
 *		From $rawdata: "missing counties fips", "ICPSR NIBRS Codes", CT county correspondence"
 *       From $proc: "state FIPS codes", "census counties"
 * Creates: "$proc\IPV", "$proc\IPV_hour"
-* Description: Creates a dataset of all victim-offender pairs in incidents of aggravated assault, simple assult, or intimidation 
-* 		For each [ori ino vseqno], there's one observation for each offender associated with the victim, with indicators with the age, sex, and 			*		relationship of both offender and victim. We drop cases where the offender associated with the victim is the victim.
+* Description: Creates a dataset of all victim-offender pairs in incidents of aggravated assault, simple assult, or intimidation. For each [ori ino vseqno], there's one observation for each offender associated with the victim, with indicators with the age, sex, and relationship of both offender and victim. We drop cases where the offender associated with the victim is the victim.
 
 clear
 * Ensure needed rawdata files are present:
 foreach f in "CT county correspondence.xlsx" "missing counties fips.xlsx" "ICPSR NIBRS Codes.xlsx" {
 	capture confirm file "$rawdata/`f'"
     if _rc {
-        di as err "Missing $rawdata/`f' — set build_nibrs to 0 or get replication_data.zip (see README)."
+        di as err "Missing $rawdata/`f' — set build_nibrs to 0 and/or download Revisiting-NFL-and-IPV.zip (see README)."
         exit 601
     }
 }

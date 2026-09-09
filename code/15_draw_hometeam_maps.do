@@ -48,7 +48,7 @@ capture confirm file "$maps\CountyCoords.dta"
 if `cpolys' | _rc {
 	capture confirm file "$rawdata\shapefiles\c_18mr25.shp"
 	if _rc {
-		display as error "Shapefile c_18mr25.shp missing from $rawdata\shapefiles, set download public 1 or get replication_data.zip (see README)."
+		display as error "Shapefile c_18mr25.shp missing from $rawdata\shapefiles, Set download public 1 and/or get the data archive Revisiting-NFL-and-IPV-data.zip (see README)."
 		exit 601	
 	}
 	
@@ -71,7 +71,7 @@ capture confirm file "$maps\StateCoords.dta"
 if `spolys' | _rc {
 	capture confirm file "$rawdata\shapefiles\cb_2024_us_state_20m.shp"
 	if _rc {
-		display as error "Shapefile cb_2024_us_state_20m.shp missing from $rawdata\shapefiles. Set download public 1 or get replication_data.zip"
+		display as error "Shapefile cb_2024_us_state_20m.shp missing from $rawdata\shapefiles. Set download public 1 and/or get the data archive Revisiting-NFL-and-IPV-data.zip (see README)."
 		exit 601	
 	}
 	shp2dta using "$rawdata\shapefiles\cb_2024_us_state_20m.shp", database("$maps\StatePolygons") coordinates("$maps\StateCoords") genid(id) replace

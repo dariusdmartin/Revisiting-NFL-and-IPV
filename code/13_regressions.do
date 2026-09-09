@@ -431,7 +431,7 @@ forvalues WinEnd = -3(1)15 {
 		}
 	}
 }
-
+* Note: in the paper, we combined these two panels of Table 7 by hand.
 listtab windowstart cellm3-cell5 using "$results\expanded_windowsA.tex", rstyle(tabular) replace ///
     head("\begin{tabular}{l*{10}{c}}" "\toprule" ///
 		"& \multicolumn{9}{c}{Window End (hours after kickoff)} \\" ///

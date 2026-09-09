@@ -9,7 +9,7 @@
 foreach f in "county_pop_center_fixes.csv" "CountyPopCenters.dta" "shapefiles\c_18mr25.shp" "Stadiums.xlsx" "SeasonDatesNFL.xlsx" {
 	capture confirm file "$rawdata/`f'"
     if _rc {
-        di as err "Missing needed file $rawdata/`f'. Download ipv-nfl-replication-data.zip (see README)"
+        di as err "Missing needed file $rawdata/`f'. Download Revisiting-NFL-and-IPV.zip (see README)"
         exit 601
     }
 }
@@ -65,7 +65,6 @@ save "$proc\census counties", replace
 
 *  ────── NFL Stadium Locations ──────────────────────────────
 import excel using "$rawdata\Stadiums.xlsx", firstrow clear
-ren (lat F) (stadium_LAT stadium_LON)
 
 * State of each team. Note: this is the state that the team's stadium is within,
 * except for the NY Giants and Jets. (Although their stadium is in NJ, the home state is set to NY. Otherwise, the Buffalo Bills are the sole team in NY.)

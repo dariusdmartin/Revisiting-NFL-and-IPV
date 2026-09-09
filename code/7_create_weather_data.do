@@ -113,7 +113,24 @@ foreach sn in `seasons' {
 		local years_to_get = scalar(str_years)
 		foreach yr in `years_to_get' {
 			tempfile master_list
-			copy "https://www.ncei.noaa.gov/data/global-summary-of-the-day/access/`yr'/" `master_list'
+			
+			local ok = 0
+			local tries = 0
+			while `ok' == 0 & `tries' < 5 {
+				capture copy "https://www.ncei.noaa.gov/data/global-summary-of-the-day/access/`yr'/" `master_list'
+				if _rc == 0 {
+					local ok = 1
+				}
+				else {
+					local ++tries
+					di "Directory listing attempt `tries' failed for `yr', waiting..."
+					sleep `=5000*`tries''
+				}
+			}
+			if `ok' == 0 {
+				di as err "Could not retrieve station listing for `yr' after 5 attempts"
+				exit 679
+			}		
 			import delimited `master_list', clear
 			gen station_id = ustrregexs(0) if ustrregexm(v1, "[0-9]{11}")
 			drop if missing(station_id)

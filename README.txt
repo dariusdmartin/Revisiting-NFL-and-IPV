@@ -30,7 +30,7 @@ build_maps          0
 haveCDfiles         0
 
 1. download_public 
-Setting this switch to 1 executes "0_download_public_data.do". This script will attempt to obtain needed data related to geography, weather, and NFL spreads and results from the original public sources where they were originally obtained. The versions of these datasets used to produce published results are included in the archive "Revisiting-NFL-and-IPV-data.zip." The script also serves as documentation for the sources of these data.
+Setting this switch to 1 executes "0_download_public_data.do". This script will attempt to obtain needed data related to geography and weather from the original public sources where they were originally obtained. The versions of these datasets used to produce published results are included in the archive "Revisiting-NFL-and-IPV-data.zip." The script also serves as documentation for the sources of these data.
 
 2. build_drivedistance
 This switch will run "2_calculate_driving_distances.do" to produce "driving distances.dta". Our preferred hometeam assignment procedure is based on driving distances between county population centers and NFL stadiums. This script calculates those driving distances using the Google Distance Matrix API. This script requires an API key, which must be provided in the global MapsAPIKey on line 21 of master.do.
@@ -82,7 +82,7 @@ Description: Has the numeric codes for each year's NIBRS extracts from ICPSR.
 
 "$rawdata\NFL Data sportsoddhist.xlsx"
 Needed by: script 4
-Description: Predicted and actual results for all NFL games in the 1995-2024 seasons. Compiled by hand from numerous websites at sportsoddshistory.
+Description: Predicted and actual results for all NFL games in the 1995-2024 seasons. Compiled by hand using sportsoddshistory.com (now https://www.covers.com/sportsoddshistory/).
 
 "$rawdata\nfldates.csv"
 Needed by: script 4
